@@ -16,7 +16,7 @@ public class Lexicon {
     private final String[] RESERVED_KEYWORDS = {
         "and", "array", "begin", "case", "const", "div", "do", "downto", "else", "end", "file",
         "for", "function", "goto", "if", "in", "integer", "label", "mod", "nil", "not", "of",
-        "or", "packed", "procedure", "program", "read", "read", "real", "record", "repeat", "set",
+        "or", "packed", "procedure", "program", "read", "real", "record", "repeat", "set",
         "then", "to", "type", "until", "var", "while", "with", "write", "writeln"
     };
     PushbackReader buffer;
@@ -81,7 +81,7 @@ public class Lexicon {
                             this.buffer.unread(a);
                         }
                     }
-                    tp = isReservedWord(sb.toString()) ? TokenType.RESERVED_WORD : TokenType.IDENTIFIER;
+                    tp = isReservedWord(sb.toString().toLowerCase()) ? TokenType.RESERVED_WORD : TokenType.IDENTIFIER;
                     return new StringToken(sb.toString(), tp, column - sb.toString().length(), line);
                 }
             }
@@ -104,6 +104,7 @@ public class Lexicon {
                         }
                         return new DoubleToken(TokenType.REAL, Double.parseDouble(sb.toString()), column, line);
                     } else {
+                        this.buffer.unread(a);
                         return new IntToken(Integer.parseInt(sb.toString()), TokenType.INTEGER, column - sb.toString().length(), line);
                     }
                 }

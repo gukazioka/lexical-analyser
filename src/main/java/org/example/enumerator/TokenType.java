@@ -24,6 +24,7 @@ public enum TokenType {
     DIFFERENT,
     EQUAL,
     LEFT_BRACKET,
-    RIGHT_BRACKET;
+    RIGHT_BRACKET,
+    COMMA;
 }
 

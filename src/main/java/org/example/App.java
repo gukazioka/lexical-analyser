@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.lexicon.Lexicon;
+import org.example.syntax.SyntaxAnalyser;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,11 +13,8 @@ import org.example.token.*;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        Lexicon lexico = new Lexicon(args[0]);
-        Token a;
-        while ((a = lexico.getToken()) != null) {
-            System.out.println(a);
-        }
+        SyntaxAnalyser syntax = new SyntaxAnalyser("test.pas");
+        syntax.program();
     }
 
     public static void substituirTabulacao(String nomeArquivo) {

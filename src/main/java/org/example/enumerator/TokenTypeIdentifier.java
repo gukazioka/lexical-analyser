@@ -38,7 +38,9 @@ public class TokenTypeIdentifier {
             return TokenType.COLON;
         } else if (lexema.equals((":="))) {
             return TokenType.ATTRIBUTE;
-        } else {
+        } else if (lexema.equals((","))){
+            return TokenType.COMMA;
+        }else {
             return null;
         }
     }

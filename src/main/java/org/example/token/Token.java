@@ -2,7 +2,7 @@ package org.example.token;
 
 import org.example.enumerator.TokenType;
 
-abstract public class Token {
+public abstract class Token<T> {
     public TokenType type;
     public int line;
     public int column;
@@ -11,6 +11,15 @@ abstract public class Token {
         this.type = type;
         this.line = line;
         this.column = column;
+    }
+
+    public abstract T getValue();
+    abstract public void setValue(T value);
+
+    public abstract boolean compare(T other);
+
+    public TokenType getTokenType() {
+        return type;
     }
 
     @Override
