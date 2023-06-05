@@ -107,8 +107,11 @@ public class SyntaxAnalyser {
     public void mais_sentencas() throws IOException {
         if (token.getTokenType() == TokenType.SEMI_COLON) {
             cont_sentencas();
-        } if(token.getTokenType() == TokenType.DOT) {
+        } else if (token.getTokenType() == TokenType.RESERVED_WORD && token.compare("end")) {
             return;
+        }
+        else {
+            System.out.println("Faltou o ponto e virgula");
         }
     }
 
