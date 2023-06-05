@@ -13,7 +13,7 @@ import org.example.token.*;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        SyntaxAnalyser syntax = new SyntaxAnalyser(args[0]);
+        SyntaxAnalyser syntax = new SyntaxAnalyser("test.pas");
         syntax.program();
     }
 
